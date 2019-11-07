@@ -2,6 +2,7 @@ package watchProject.controller;
 
 import org.springframework.web.bind.annotation.*;
 import watchProject.DAO.*;
+import watchProject.objects.*;
 
 @RestController
 public class Controller {
@@ -34,52 +35,52 @@ public class Controller {
     }
 
     @GetMapping(value="/users")
-    public String getAllUsers(){ return usersDAO.findAll().toString();}
+    public Iterable<User> getAllUsers(){ return usersDAO.findAll();}
 
     @GetMapping(value="/users/{id}")
-    public String getUsers(@PathVariable long id){
-        return usersDAO.findById(id).toString();
+    public User getUsers(@PathVariable long id){
+        return usersDAO.findById(id).get();
     }
 
     @GetMapping(value="/runs")
-    public String getAllRuns(){ return runsDAO.findAll().toString();}
+    public Iterable<Run> getAllRuns(){ return runsDAO.findAll();}
 
     @GetMapping(value="/runs/{id}")
-    public String getRuns(@PathVariable long id){ return runsDAO.findById(id).toString(); }
+    public Run getRuns(@PathVariable long id){ return runsDAO.findById(id).get(); }
 
     @GetMapping(value="/oxygenLevels")
-    public String getAllOxygenLevels(){ return oxygenLevelsDAO.findAll().toString();}
+    public Iterable<OxygenLevel> getAllOxygenLevels(){ return oxygenLevelsDAO.findAll();}
 
     @GetMapping(value="/oxygenLevels/ {id}")
-    public String getOxygenLevels(@PathVariable long id){ return oxygenLevelsDAO.findById(id).toString();}
+    public OxygenLevel getOxygenLevels(@PathVariable long id){ return oxygenLevelsDAO.findById(id).get();}
 
     @GetMapping(value="/speeds")
-    public String getAllSpeeds(){ return speedsDAO.findAll().toString();}
+    public Iterable<Speed> getAllSpeeds(){ return speedsDAO.findAll();}
 
     @GetMapping(value="/speeds/ {id}")
-    public String getSpeeds(@PathVariable long id){ return speedsDAO.findById(id).toString();}
+    public Speed getSpeeds(@PathVariable long id){ return speedsDAO.findById(id).get();}
 
     @GetMapping(value="/calories")
-    public String getAllCalories(){ return caloriesDAO.findAll().toString();}
+    public Iterable<Calorie> getAllCalories(){ return caloriesDAO.findAll();}
 
     @GetMapping(value="/calories/ {id}")
-    public String getCalories(@PathVariable long id){ return caloriesDAO.findById(id).toString();}
+    public Calorie getCalories(@PathVariable long id){ return caloriesDAO.findById(id).get();}
 
     @GetMapping(value="/distances")
-    public String getAllDistances(){ return distancesDAO.findAll().toString();}
+    public Iterable<Distance> getAllDistances(){ return distancesDAO.findAll();}
 
     @GetMapping(value="/distances/ {id}")
-    public String getDistances(@PathVariable long id){ return distancesDAO.findById(id).toString();}
+    public Distance getDistances(@PathVariable long id){ return distancesDAO.findById(id).get();}
 
     @GetMapping(value="/heartRates")
-    public String getAllHeartRates(){ return heartRatesDAO.findAll().toString();}
+    public Iterable<HeartRate> getAllHeartRates(){ return heartRatesDAO.findAll();}
 
     @GetMapping(value="/heartRates/ {id}")
-    public String getHeartRates(@PathVariable long id){ return heartRatesDAO.findById(id).toString();}
+    public HeartRate getHeartRates(@PathVariable long id){ return heartRatesDAO.findById(id).get();}
 
     @GetMapping(value="/temperatures")
-    public String getAllTemperatures(){ return temperaturesDAO.findAll().toString();}
+    public Iterable<Temperature> getAllTemperatures(){ return temperaturesDAO.findAll();}
 
     @GetMapping(value="/temperatures/ {id}")
-    public String getTemperatures(@PathVariable long id){ return temperaturesDAO.findById(id).toString();}
+    public Temperature getTemperatures(@PathVariable long id){ return temperaturesDAO.findById(id).get();}
 }
