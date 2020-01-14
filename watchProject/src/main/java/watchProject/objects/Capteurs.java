@@ -12,6 +12,8 @@ public class Capteurs {
     private String time;
     @Column(name="run_id")
     private long run_id;
+    @Column(name="calorie")
+    private String calorie;
     @Column(name = "heart_rate")
     private String heart_rate;
     @Column(name = "distance")
@@ -25,9 +27,10 @@ public class Capteurs {
     @Column(name = "speed")
     private String speed;
 
-    public Capteurs(String time, long run_id, String heart_rate, String distance, String body_temperature, String outside_temperature, String oxygen_level, String speed) {
+    public Capteurs(String time, long run_id, String calorie, String heart_rate, String distance, String body_temperature, String outside_temperature, String oxygen_level, String speed) {
         this.time = time;
         this.run_id = run_id;
+        this.calorie = calorie;
         this.heart_rate = heart_rate;
         this.distance = distance;
         this.body_temperature = body_temperature;
@@ -58,6 +61,14 @@ public class Capteurs {
 
     public void setRun_id(long run_id) {
         this.run_id = run_id;
+    }
+
+    public String getCalorie() {
+        return calorie;
+    }
+
+    public void setCalorie(String calorie) {
+        this.calorie = calorie;
     }
 
     public String getHeart_rate() {

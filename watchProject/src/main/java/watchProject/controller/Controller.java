@@ -34,8 +34,8 @@ public class Controller {
     public Run getRuns(@PathVariable long id){ return runsDAO.findById(id).get(); }
 
     @GetMapping(value="/capteurs")
-    public Iterable<Capteurs> getAllHeartRates(){ return capteursDAO.findAll();}
+    public Iterable<Capteurs> getAllCapteurs(){ return capteursDAO.findAll();}
 
     @GetMapping(value="/capteurs/{id}")
-    public Capteurs getHeartRates(@PathVariable long id){ return capteursDAO.findById(id).get();}
+    public Capteurs getCapteurs(@PathVariable long id){ return capteursDAO.findById(id).get();}
 }
