@@ -39,6 +39,9 @@ public class Capteurs {
         this.speed = speed;
     }
 
+    public Capteurs() {
+    }
+
     public long getId() {
         return id;
     }

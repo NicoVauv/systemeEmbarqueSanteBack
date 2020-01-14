@@ -4,6 +4,10 @@ import org.springframework.web.bind.annotation.*;
 import watchProject.DAO.*;
 import watchProject.objects.*;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 @RestController
 public class Controller {
 
@@ -35,6 +39,20 @@ public class Controller {
 
     @GetMapping(value="/capteurs")
     public Iterable<Capteurs> getAllCapteurs(){ return capteursDAO.findAll();}
+
+    @GetMapping(value="/capteurs/runs/{run_id}")
+    public Iterable<Capteurs> getAllCapteurs(@PathVariable long run_id){
+        List<Capteurs> capteursList = new ArrayList<>();
+        Iterator<Capteurs> capteursIterator = capteursDAO.findAll().iterator();
+        Capteurs capteurTampon;
+        while(capteursIterator.hasNext()){
+            capteurTampon = capteursIterator.next();
+            if(capteurTampon.getRun_id() == run_id){
+                capteursList.add(capteurTampon);
+            }
+        }
+        return capteursList;
+    }
 
     @GetMapping(value="/capteurs/{id}")
     public Capteurs getCapteurs(@PathVariable long id){ return capteursDAO.findById(id).get();}
