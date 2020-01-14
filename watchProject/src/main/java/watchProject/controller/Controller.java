@@ -23,23 +23,29 @@ public class Controller {
         this.capteursDAO = capteursDAO;
     }
 
+    @CrossOrigin
     @GetMapping(value="/users")
     public Iterable<User> getAllUsers(){ return usersDAO.findAll();}
 
+    @CrossOrigin
     @GetMapping(value="/users/{id}")
     public User getUsers(@PathVariable long id){
         return usersDAO.findById(id).get();
     }
 
+    @CrossOrigin
     @GetMapping(value="/runs")
     public Iterable<Run> getAllRuns(){ return runsDAO.findAll();}
 
+    @CrossOrigin
     @GetMapping(value="/runs/{id}")
     public Run getRuns(@PathVariable long id){ return runsDAO.findById(id).get(); }
 
+    @CrossOrigin
     @GetMapping(value="/capteurs")
     public Iterable<Capteurs> getAllCapteurs(){ return capteursDAO.findAll();}
 
+    @CrossOrigin
     @GetMapping(value="/capteurs/runs/{run_id}")
     public Iterable<Capteurs> getAllCapteurs(@PathVariable long run_id){
         List<Capteurs> capteursList = new ArrayList<>();
@@ -54,6 +60,7 @@ public class Controller {
         return capteursList;
     }
 
+    @CrossOrigin
     @GetMapping(value="/capteurs/{id}")
     public Capteurs getCapteurs(@PathVariable long id){ return capteursDAO.findById(id).get();}
 }
